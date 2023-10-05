@@ -5,4 +5,9 @@ class Comment < ApplicationRecord
 
   # Attributes
   attribute :text, :text
+
+  # Methods
+  def update_comments_counter_for_post
+    post.increment!(:comments_counter)
+  end
 end
