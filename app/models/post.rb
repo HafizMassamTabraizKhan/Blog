@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   # Associations
-  belongs_to :author, calss_name: 'User'
+  belongs_to :author, class_name: 'User'
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
@@ -9,4 +9,9 @@ class Post < ApplicationRecord
   attribute :text, :text
   attribute :comments_counter, :integer, default: 0
   attribute :likes_counter, :integer, default: 0
+
+  # Methods
+  def update_posts_counter_for_user
+    author.increment!(:posts_counter)
+  end
 end
