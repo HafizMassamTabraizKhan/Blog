@@ -10,6 +10,9 @@ class Post < ApplicationRecord
   attribute :comments_counter, :integer, default: 0
   attribute :likes_counter, :integer, default: 0
 
+  # Callback
+  after_save :update_posts_counter_for_user
+
   # Methods
   def update_posts_counter_for_user
     author.increment!(:posts_counter)
