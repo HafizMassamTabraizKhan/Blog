@@ -1,5 +1,6 @@
-<section class="all_users_container">
-  <div>
-    <%= render partial: "partials/user", collection: @users, as: :user || ">No users found" %>
-  </div>
-</section>
+<%= 'No user' if @user.empty? %>
+<% @user.each do |user| %>
+    <%= link_to user_path(user) do %>
+        <%= render user %>
+    <% end %><br>
+<% end %>
