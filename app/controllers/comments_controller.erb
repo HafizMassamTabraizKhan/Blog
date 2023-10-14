@@ -17,4 +17,10 @@ class CommentsController < ApplicationController
             end
         end
     end
+
+    private
+
+  def comment_parameters
+    params.require(:comment).permit(:text)
+  end
 end
