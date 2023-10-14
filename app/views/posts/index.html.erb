@@ -10,3 +10,4 @@
     </div>
     <p id="view-post"><%= link_to 'View Post', user_post_path(@user, post) %></p>
 <% end %>
+<%= will_paginate @posts %>
