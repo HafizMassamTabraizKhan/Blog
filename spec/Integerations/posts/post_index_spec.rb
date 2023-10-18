@@ -4,7 +4,7 @@ RSpec.describe 'post index view page', type: :system do
   let!(:user1) do
     User.create(
       name: 'test user1',
-      photo: 'https://images.example.com/i/086/5621234.jpg',
+      photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrkfBY9UTdiEHSYCSo7iuM4k1Eyv-u9YwGqQ&usqp=CAU',
       bio: 'test_bio1',
       posts_counter: 1
     )
