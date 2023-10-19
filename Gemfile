@@ -73,5 +73,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'dotenv-rails', groups: %i[development test]
 
 # pagination for a page
-gem 'will_paginate'
 gem 'cancancan'
+
+gem 'will_paginate'
