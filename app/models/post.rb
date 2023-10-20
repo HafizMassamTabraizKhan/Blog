@@ -11,7 +11,8 @@ class Post < ApplicationRecord
   attribute :likes_counter, :integer, default: 0
 
   # Callback
-  after_save :update_posts_counter_for_user
+  after_save :increment_posts_counter_for_user
+  after_destroy :decrement_posts_counter_for_user
 
   # Validations
   validates :title, presence: true, length: { maximum: 250 }
@@ -19,8 +20,12 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   # Methods
-  def update_posts_counter_for_user
+  def increment_posts_counter_for_user
     author.increment!(:posts_counter)
+  end
+
+  def decrement_posts_counter_for_user
+    author.decrement!(:posts_counter)
   end
 
   def recent_comments
